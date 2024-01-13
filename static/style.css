@@ -1,0 +1,158 @@
+
+*{margin: 0px; padding: 0px;}
+body{color:white;}
+.section-1{
+    position:fixed;
+    top:0px;
+    width:100%;
+    height:100px;
+    background-color:rgb(60,60,45);
+    z-index: 10;
+    display:flex;
+    border-bottom-left-radius:20px;
+    border-bottom-right-radius:20px;
+}
+.section-2{
+    position: relative;
+    padding-top:100px;
+    width:100%;
+    height: 100vh;
+    z-index: 9;
+    background-image:url("/static/portfolio3.jpg");
+    background-position: center;
+    background-size: contain;
+     }
+.section-2> h1{
+    font-weight: 600;
+    text-align: center;
+
+    }
+.section-2>span{
+    font-size: 1.6em;
+
+}
+.story-summary{
+    width:25%;
+    height: 30vh;
+    float:right;
+    background-color:rgba(0,0,0 ,.4);
+    border-radius: 20px;
+
+}
+
+.story-summary> h1 {text-align:center;}
+.story-summary> h2 >p {text-align:center;}
+#menu{
+    fill:white;
+    position:fixed;
+    top:0px;
+    left:0px;
+    margin: 20px;
+
+    cursor: pointer;
+    border-style:solid;
+}
+#searchIcon{
+    fill:white;
+    position:fixed;
+    top:10px;
+    right:70px;
+    margin: 10px;
+    padding: 10px;
+    cursor: pointer;
+    display: block;
+}
+#closeIcon{
+    margin-right: 18px;
+    border:none;
+
+}
+
+#link_wrapper{
+
+    position:fixed;
+    top:0px;
+    left:0px;
+    height: 60vh;
+    width:0px;
+    background-color: rgb(212,212,212);
+    overflow:hidden;
+    white-space: nowrap;
+    transition: width 0.5s ease;
+    border-radius: 20px;
+
+    z-index: 13;
+
+}
+#overlay{
+
+    width:100vw;
+    height:100vh;
+    display:none;
+    transition: display 0.5s ease;
+    z-index: 12;
+}
+#link_wrapper>a{
+  display:block;
+  color:black;
+  text-decoration: none;
+  font-size: 120%;
+  margin: 10px;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  }
+#link_wrapper>.active{
+  color:white;
+}
+#link_wrapper>a:hover{
+  color:grey;
+   transition: color 0.5s; }
+#link_wrapper>.active:hover{
+    color:white;
+    transition: color 0.5s; }
+
+#link_wrapper>a:active{color:white; transition: color;}
+.logo-wrapper{
+    position: fixed;
+    height:inherit;
+    width:15vw;
+    text-align:center;
+    margin:0 42.5vw;
+    z-index: 10;
+
+
+
+}
+.logo-wrapper>img{
+    height:100%;
+    width:100%;
+    z-index: 10;
+}
+#search_div{
+    color:rgb(100, 250, 150);
+    position: fixed;
+    top: 0px;
+    right: 0px;
+    margin:0 15vw;
+    padding:25px 0;
+    display: none;
+    align-items: center;
+    width:70vw;
+
+}
+#search_div>input{
+    height:38px;
+    width:100%;
+    border-radius:10px;
+
+}
+#search_div>button{
+    height:25px;
+    width: 35px;
+    background-color: rgb(50, 255, 255);
+    margin-left: 5px;
+    border-radius: 10px;
+    outline:none;
+
+}
