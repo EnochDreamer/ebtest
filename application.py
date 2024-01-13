@@ -1,11 +1,22 @@
-from flask import Flask , render_template
+from flask import Flask , render_template,request,redirect,url_for
+from models import db_setup,Course
+from flask_migrate import Migrate
 
 
-application=Flask(__name__)
+app=Flask(__name__)
+db_setup(app,Migrate)
 
-@application.route('/')
+@app.route('/')
 def home():
-    return render_template('index.html',user="ENOCH")
+    courses=Course.query.all()
+    return render_template('index.html',courses=courses)
+
+@app.route('/new_course',methods=['POST'])
+def new_course():
+    name=request.form.get('name')
+    newTopic=Course(name=name)
+    newTopic.commit()
+    return redirect(url_for('home'))
 
 if __name__=='__main__':
-    application.run()
+    app.run()
