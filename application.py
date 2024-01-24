@@ -3,15 +3,15 @@ from models import db_setup,Course
 from flask_migrate import Migrate
 
 
-app=Flask(__name__)
-db_setup(app,Migrate)
+application=Flask(__name__)
+db_setup(application,Migrate)
 
-@app.route('/')
+@application.route('/')
 def home():
     courses=Course.query.all()
     return render_template('index.html',courses=courses)
 
-@app.route('/new_course',methods=['POST'])
+@application.route('/new_course',methods=['POST'])
 def new_course():
     name=request.form.get('name')
     newTopic=Course(name=name)
@@ -19,4 +19,4 @@ def new_course():
     return redirect(url_for('home'))
 
 if __name__=='__main__':
-    app.run()
+    application.run()
