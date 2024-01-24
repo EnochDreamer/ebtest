@@ -1,10 +1,9 @@
 from flask import Flask , render_template,request,redirect,url_for
 from models import db_setup,Course
-from flask_migrate import Migrate
 
 
 application=Flask(__name__)
-db_setup(application,Migrate)
+db_setup(application)
 
 @application.route('/')
 def home():

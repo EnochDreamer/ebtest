@@ -12,13 +12,14 @@ if 'RDS_HOSTNAME' in os.environ:
     database_path=f'postgresql://{db_username}:{db_password}@{db_host}:{db_port}/{db_name}'
 
 db=SQLAlchemy()
-def db_setup(app,Migrate,database_path=database_path,db=db):
+def db_setup(app,database_path=database_path,db=db):
     app.config["SQLALCHEMY_DATABASE_URI"] = database_path
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
     app.config["SECRET_KEY"]="hello world"
     db.app = app
     db.init_app(app)
-    migrate=Migrate(app,db)
+    with app.app_context():
+        db.create_all()
     return app
 
 class Course(db.Model):
